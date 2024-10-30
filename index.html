@@ -5,10 +5,162 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mods Download</title>
     <style>
-        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+
+                /* General page styling */
+        body {
+            background-color: #3E3E3E;
+            font-family: 'Press Start 2P', cursive; /* Minecraft-like font */
+        }
+
+        /* Page border styling */
+        .page-border {
+            border: 15px solid #7C7C7C;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+            background-color: #f9f9f9;
+        }
+
+        /* Tab container */
+        .tab-container {
+            margin: 20px 0;
+        }
+
+        /* Style the tab links */
+        .tab {
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+
+        .tab button {
+            background-color: inherit;
+            float: left;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 14px 30px; /* Increased right padding */
+            transition: 0.3s;
+            font-family: 'Press Start 2P', cursive; /* Font for tab buttons */
+            position: relative; /* For positioning the arrow */
+            margin-right: 5px; /* Space between buttons */
+        }
+
+        .tab button:hover {
+            background-color: #4CAF50; /* Minecraft green */
+            color: white;
+        }
+
+        /* Create an active/current tab link */
+        .tab button.active {
+            background-color: #ccc;
+        }
+
+        /* Arrow icon */
+        .arrow {
+            position: absolute;
+            right: 15px; /* Position it on the right with more space */
+            top: 50%; /* Center it vertically */
+            transform: translateY(-50%); /* Adjust for centering */
+            transition: transform 0.3s; /* Animation for the arrow */
+        }
+
+        /* Arrow down class */
+        .arrow.down {
+            transform: translateY(-50%) rotate(180deg); /* Rotate 180 degrees for down */
+        }
+
+        /* Tab content */
+        .tabcontent {
+            display: none;
+            padding: 20px;
+            border-top: none;
+        }
+
+        
+.tabcontent {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+.tabcontent.active {
+    display: block;
+    opacity: 1;
+}
+
+/* Image styling */
+        img {
+            width: 100%; /* Adjust width for banner */
+            height: auto;
+            margin: 10px 0;
+            border: 5px solid #7C7C7C;
+            border-radius: 5px;
+            box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Button styling */
+        .download-button {
+            display: inline-block;
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px 0;
+        }
+
+        .download-button:hover {
+            background-color: #45a049; /* Slightly darker green */
+        }
+
+        /* Box styling for downloads and buttons */
+        .download-box {
+            border: 2px solid #7C7C7C;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #f0f0f0;
+        }
+
+        /* Section styling */
+        .section {
+            display: none; /* Hide sections by default */
+        }
+
+        /* Guide toggle buttons */
+        .guide-toggle {
+            padding: 10px 30px; /* Increased padding to prevent overlap */
+            margin: 5px;
+            background-color: #f1f1f1;
+            border: none;
+            cursor: pointer;
+            font-family: 'Press Start 2P', cursive; /* Font for toggle buttons */
+            position: relative; /* For positioning the arrow */
+            margin-right: 5px; /* Space between buttons */
+        }
+
+        .guide-toggle:hover {
+            background-color: #4CAF50; /* Minecraft green */
+            color: white;
+        }
+
+        /* Arrow for guide toggle buttons */
+        .guide-toggle .arrow {
+            right: 15px; /* Position it on the right with more space */
+        }
+
+        /* Guide image styling */
+        .guide-image {
+            max-width: 80%; /* Limit image size for guides */
+            height: auto; /* Maintain aspect ratio */
+            margin: 10px 0; /* Space around images */
+            border: 2px solid #7C7C7C; /* Slight border for images */
+            border-radius: 5px; /* Rounded corners for images */
+        }
+        
         .back-arrow { position: absolute; top: 20px; left: 20px; font-size: 24px; text-decoration: none; }
-        .hidden { display: none; }
-        .download-section { margin-top: 20px; }
+        
     </style>
 </head>
 <body>
