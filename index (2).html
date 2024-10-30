@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: auto;
+        }
+        .download-button {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 300px;
+            text-align: center;
+        }
+        .close, .cancel {
+            background-color: #f44336;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 8px 16px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .submit {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 8px 16px;
+            margin-top: 10px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Downloads</h1>
+
+    <!-- Password-Protected Downloads -->
+    <button class="download-button" onclick="openModal('nullHerobrine')">Download Null and Herobrine Skins</button>
+    <button class="download-button" onclick="openModal('entityWraith')">Download Entity and Wraith Skins</button>
+    <button class="download-button" onclick="openModal('swordStrap')">Download Sword Strap Skin</button>
+    <button class="download-button" onclick="openModal('amw')">Download AMW Downloads</button>
+    <button class="download-button" onclick="openModal('spryConquest')">Download Spry Conquest Mod</button>
+    <button class="download-button" onclick="openModal('lostVotes')">Download LostVotes Mod</button>
+
+    <!-- Additional Downloads -->
+    <!-- Replace '#' with the actual GitHub file URLs -->
+    <button class="download-button" onclick="startDownload('mod1.zip')">Download Mod 1</button>
+    <button class="download-button" onclick="startDownload('mod2.zip')">Download Mod 2</button>
+    <button class="download-button" onclick="startDownload('mod3.zip')">Download Mod 3</button>
+    <button class="download-button" onclick="startDownload('mod4.zip')">Download Mod 4</button>
+    <button class="download-button" onclick="startDownload('mod5.zip')">Download Mod 5</button>
+    <button class="download-button" onclick="startDownload('mod6.zip')">Download Mod 6</button>
+    <button class="download-button" onclick="startDownload('mod7.zip')">Download Mod 7</button>
+    <button class="download-button" onclick="startDownload('mod8.zip')">Download Mod 8</button>
+    <button class="download-button" onclick="startDownload('mod9.zip')">Download Mod 9</button>
+    <button class="download-button" onclick="startDownload('mod10.zip')">Download Mod 10</button>
+    <button class="download-button" onclick="startDownload('mod11.zip')">Download Mod 11</button>
+    <button class="download-button" onclick="startDownload('mod12.zip')">Download Mod 12</button>
+    <button class="download-button" onclick="startDownload('mod13.zip')">Download Mod 13</button>
+
+    <!-- Password Entry Modal -->
+    <div id="passwordModal" class="modal">
+        <div class="modal-content">
+            <p>Enter Password:</p>
+            <input type="password" id="passwordInput" placeholder="Password">
+            <br><br>
+            <button class="submit" onclick="validatePassword()">Submit</button>
+            <button class="cancel" onclick="closeModal()">Cancel</button>
+            <p id="error-message" style="color: red; display: none;">Incorrect password. Try again.</p>
+        </div>
+    </div>
+
+    <script>
+        // Passwords for protected downloads
+        const passwords = {
+            nullHerobrine: "SKINS!!!",
+            entityWraith: "SKINS!!!",
+            swordStrap: "SKINS!!!",
+            amw: "2069845^^",
+            spryConquest: "MAGICAL",
+            lostVotes: "LOSERS"
+        };
+
+        // Direct links to files (update with actual GitHub URLs)
+        const downloadLinks = {
+            nullHerobrine: "#",
+            entityWraith: "#",
+            swordStrap: "#",
+            amw: "#",
+            spryConquest: "#",
+            lostVotes: "#",
+            mod1: "#",
+            mod2: "#",
+            mod3: "#",
+            mod4: "#",
+            mod5: "#",
+            mod6: "#",
+            mod7: "#",
+            mod8: "#",
+            mod9: "#",
+            mod10: "#",
+            mod11: "#",
+            mod12: "#",
+            mod13: "#"
+        };
+
+        let currentDownload = "";
+
+        function openModal(downloadType) {
+            currentDownload = downloadType;
+            document.getElementById("passwordModal").style.display = "block";
+            document.getElementById("passwordInput").value = "";
+            document.getElementById("error-message").style.display = "none";
+        }
+
+        function closeModal() {
+            document.getElementById("passwordModal").style.display = "none";
+            document.getElementById("error-message").style.display = "none";
+        }
+
+        function validatePassword() {
+            const enteredPassword = document.getElementById("passwordInput").value;
+            if (enteredPassword === passwords[currentDownload]) {
+                window.location.href = downloadLinks[currentDownload];
+                closeModal();
+            } else {
+                document.getElementById("error-message").style.display = "block";
+            }
+        }
+
+        function startDownload(filename) {
+            window.location.href = downloadLinks[filename];
+        }
+    </script>
+
+</body>
+</html>
