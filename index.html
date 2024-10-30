@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mods Download</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .back-arrow { position: absolute; top: 20px; left: 20px; font-size: 24px; text-decoration: none; }
+        .hidden { display: none; }
+        .download-section { margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+    <!-- Back Arrow -->
+    <a href="https://shadowslayer555.github.io/MCdoc/" class="back-arrow">&#8592; Back</a>
+
+    <!-- Password Section -->
+    <div id="password-section">
+        <h2>Enter Password</h2>
+        <input type="password" id="password" placeholder="Password">
+        <button onclick="checkPassword()">Submit</button>
+        <p id="error-message" style="color: red;"></p>
+    </div>
+
+    <!-- Download Section -->
+    <div id="download-section" class="hidden">
+        <h2>Available Mods</h2>
+        <div class="download-section">
+            <ul>
+                <!-- Download Links (Will be auto-populated by JavaScript) -->
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        const password = "2069845^^.";
+        
+        // Function to check the entered password
+        function checkPassword() {
+            const enteredPassword = document.getElementById("password").value;
+            const errorMessage = document.getElementById("error-message");
+
+            if (enteredPassword === password) {
+                document.getElementById("password-section").classList.add("hidden");
+                document.getElementById("download-section").classList.remove("hidden");
+                loadDownloadLinks();
+            } else {
+                errorMessage.textContent = "Incorrect password. Please try again.";
+            }
+        }
+
+        // Function to load download links from the Addons folder
+        function loadDownloadLinks() {
+            const downloadSection = document.querySelector(".download-section ul");
+            
+            // List of files (modify if filenames are known)
+            const files = [
+                "mod1.zip",
+                "mod2.zip"
+                // Add filenames as necessary
+            ];
+            
+            files.forEach(file => {
+                const listItem = document.createElement("li");
+                const link = document.createElement("a");
+                link.href = `./Addons/${file}`;
+                link.download = file;
+                link.textContent = `Download ${file}`;
+                listItem.appendChild(link);
+                downloadSection.appendChild(listItem);
+            });
+        }
+    </script>
+</body>
+</html>
