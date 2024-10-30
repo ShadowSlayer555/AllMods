@@ -54,14 +54,21 @@
         // Function to load download links from the Addons folder
         function loadDownloadLinks() {
             const downloadSection = document.querySelector(".download-section ul");
-            
-            // List of files (modify if filenames are known)
+
+            // List of files
             const files = [
-                "mod1.zip",
-                "mod2.zip"
-                // Add filenames as necessary
+                "AMagicWay.zip",
+                "BabyEnderDragon.mcaddon",
+                "ElementalWands.zip",
+                "EnderAwakening.zip",
+                "MobVoteLosers.mcaddon",
+                "ShadowsResources.zip",
+                "ShadowsSkins.zip",
+                "SpryConquest.mcaddon",
+                "TntGun.mcaddon",
+                "TrueWeapons.zip"
             ];
-            
+
             files.forEach(file => {
                 const listItem = document.createElement("li");
                 const link = document.createElement("a");
